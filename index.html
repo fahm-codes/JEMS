@@ -174,14 +174,14 @@ function arcadeOptions(options,correct,why=''){ $('arcadeOptions').innerHTML=opt
 const wordGridDictionary=new Set(('cat dog sun map pen bat rat hat mat man fan can pan tap top pot hot hop run fun red bed box fox jam ham yes yet ten net pet wet sit hit big pig dig win pin tin cup cut bus bug rug mug log leg hen men den one two three book look cook good food tree free play game word grid letter apple banana orange water house mouse chair table happy smile school friend family mother father brother sister green black white yellow blue pink purple brown bird fish milk bread ball car train plane boat star moon rain snow cloud flower garden river happy hello world learn read write jump walk talk sing king ring wing ring word words spell spellings smart brain board point points score'.split(/\s+/)));
 function wordGridStart(){
   arcadeLocked=false;arcadeBoardHTML('WORD GRID BATTLE','Build words against the bot!','Choose a letter, then tap an empty square. Words form left-to-right or top-to-bottom.');
-  const state={board:Array(64).fill(''),turn:'you',selected:'A',scoreYou:0,scoreBot:0,level:'easy',over:false,size:8};
+  const state={board:Array(16).fill(''),turn:'you',selected:'A',scoreYou:0,scoreBot:0,level:'easy',over:false,size:4};
   const root=$('arcadeBoard');
-  root.innerHTML='<div class="eyebrow">WORD GRID BATTLE</div><div class="question">You vs English Bot</div><div class="controls" style="justify-content:center"><label for="wgLevel">Bot level</label><select id="wgLevel"><option value="easy" selected>Easy · 8×8</option><option value="medium">Medium · 16×16</option><option value="hard">Hard · 32×32</option></select><span id="wgTurn">Your turn</span></div><div id="wgGrid" style="display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:2px;width:100%;max-width:760px;margin:12px auto"></div><div id="wgLetters" class="actions" style="justify-content:center;flex-wrap:wrap"></div><div class="feedback" id="wgFeedback" aria-live="polite">Select a letter, then choose a square.</div><div class="note" id="wgScore">You 0 — Bot 0</div><div class="actions" style="justify-content:center"><button class="btn" id="wgNew">New round</button></div>';
+  root.innerHTML='<div class="eyebrow">WORD GRID BATTLE</div><div class="question">You vs English Bot</div><div class="controls" style="justify-content:center"><label for="wgLevel">Bot level</label><select id="wgLevel"><option value="easy" selected>Easy · 4×4</option><option value="medium">Medium · 8×8</option><option value="hard">Hard · 12×12</option></select><span id="wgTurn">Your turn</span></div><div id="wgGrid" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;width:100%;max-width:760px;margin:12px auto"></div><div id="wgLetters" class="actions" style="justify-content:center;flex-wrap:wrap"></div><div class="feedback" id="wgFeedback" aria-live="polite">Select a letter, then choose a square.</div><div class="note" id="wgScore">You 0 — Bot 0</div><div class="actions" style="justify-content:center"><button class="btn" id="wgNew">New round</button></div>';
   const letters='AEIORTNSLDUCM'; state.selected='A';
   const draw=()=>{
     $('wgGrid').style.gridTemplateColumns='repeat('+state.size+',minmax(0,1fr))';
-    $('wgGrid').style.gap=state.size===32?'1px':state.size===16?'2px':'3px';
-    $('wgGrid').innerHTML=state.board.map((v,i)=>'<button class="option" data-wg-cell="'+i+'" aria-label="Row '+(Math.floor(i/state.size)+1)+', column '+(i%state.size+1)+'" style="padding:0;min-width:0;min-height:0;aspect-ratio:1;font-size:'+(state.size===32?'clamp(5px,1.8vw,12px)':state.size===16?'clamp(8px,2.6vw,16px)':'clamp(12px,4vw,22px)')+';font-weight:800;border-radius:3px" '+(v||state.over||state.turn!=='you'?'disabled':'')+'>'+esc(v||'·')+'</button>').join('');
+    $('wgGrid').style.gap=state.size===12?'2px':state.size===8?'3px':'4px';
+    $('wgGrid').innerHTML=state.board.map((v,i)=>'<button class="option" data-wg-cell="'+i+'" aria-label="Row '+(Math.floor(i/state.size)+1)+', column '+(i%state.size+1)+'" style="padding:0;min-width:0;min-height:0;aspect-ratio:1;font-size:'+(state.size===12?'clamp(8px,2.5vw,16px)':state.size===8?'clamp(10px,3vw,19px)':'clamp(14px,4vw,24px)')+';font-weight:800;border-radius:3px" '+(v||state.over||state.turn!=='you'?'disabled':'')+'>'+esc(v||'·')+'</button>').join('');
     $('wgLetters').innerHTML=[...letters].map(l=>'<button class="btn '+(state.selected===l?'primary':'')+'" data-wg-letter="'+l+'">'+l+'</button>').join('');
     $('wgTurn').textContent=state.over?'Round finished':state.turn==='you'?'Your turn':'Bot is thinking…';
     $('wgScore').textContent='You '+state.scoreYou+' — Bot '+state.scoreBot+' | '+$('wgLevel').value.toUpperCase()+' · '+state.size+'×'+state.size;
@@ -200,15 +200,15 @@ function wordGridStart(){
     if(v.length>=2&&wordGridDictionary.has(v.toLowerCase()))words.push(v.toLowerCase());
     return words;
   };
-  const finish=()=>{if(state.board.every(Boolean)){state.over=true;$('wgFeedback').textContent='Board full! Round over.';draw()}};
+  const finish=()=>{if(state.board.every(Boolean)){state.over=true;$('wgFeedback').textContent='Board full! Round over. Each completed word is worth 1 point.';draw()}};
   const place=(idx,letter,player)=>{
     if(state.board[idx]||state.over)return false;
     const next=state.board.slice();next[idx]=letter;
     const formed=formedAt(next,idx);
     state.board=next;
-    const points=formed.reduce((n,w)=>n+w.length,0);
+    const points=formed.length;
     if(player==='you')state.scoreYou+=points;else state.scoreBot+=points;
-    $('wgFeedback').textContent=formed.length?(player==='you'?'You made: ':'Bot made: ')+formed.join(', ')+' (+'+points+')':(player==='you'?'Letter placed. Try to complete a word.':'Bot placed '+letter+'.');
+    $('wgFeedback').textContent=formed.length?(player==='you'?'You made: ':'Bot made: ')+formed.join(', ')+' (+'+points+')':(player==='you'?'No word formed: 0 points. Try to complete a word.':'Bot placed '+letter+'.');
     draw();finish();return true;
   };
   const botMove=()=>{
@@ -219,7 +219,7 @@ function wordGridStart(){
     for(const idx of empties)for(const letter of lettersByLevel){
       const b=state.board.slice();b[idx]=letter;
       const formed=formedAt(b,idx);
-      const score=formed.reduce((n,w)=>n+w.length,0);
+      const score=formed.length;
       candidates.push({idx,letter,score});
     }
     candidates.sort((a,b)=>b.score-a.score);
@@ -235,7 +235,7 @@ function wordGridStart(){
   $('wgLetters').onclick=e=>{const b=e.target.closest('[data-wg-letter]');if(!b||state.turn!=='you'||state.over)return;state.selected=b.dataset.wgLetter;draw()};
   $('wgGrid').onclick=e=>{const b=e.target.closest('[data-wg-cell]');if(!b||state.turn!=='you'||state.over)return;const idx=Number(b.dataset.wgCell);if(place(idx,state.selected,'you')&&!state.over){state.turn='bot';draw();setTimeout(botMove,250)}};
   $('wgLevel').onchange=()=>{
-    state.size=$('wgLevel').value==='easy'?8:$('wgLevel').value==='medium'?16:32;
+    state.size=$('wgLevel').value==='easy'?4:$('wgLevel').value==='medium'?8:12;
     state.board=Array(state.size*state.size).fill('');
     state.scoreYou=0;state.scoreBot=0;state.over=false;state.turn='you';
     $('wgFeedback').textContent='New '+state.size+'×'+state.size+' board. Select a letter and place it.';
