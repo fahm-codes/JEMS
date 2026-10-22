@@ -172,7 +172,19 @@ function arcadeReward(ok,answer,why=''){arcadeLocked=true;const f=$('arcadeFeedb
 function arcadeOptions(options,correct,why=''){ $('arcadeOptions').innerHTML=options.map((o,i)=>'<button class="option" data-arcade="'+i+'">'+esc(o.label||o)+'</button>').join('');$('arcadeOptions').onclick=e=>{const b=e.target.closest('[data-arcade]');if(!b||arcadeLocked)return;const item=options[Number(b.dataset.arcade)];const val=item.value||item.label||item;const ok=val===correct;document.querySelectorAll('#arcadeOptions .option').forEach(x=>{x.disabled=true;if((options[Number(x.dataset.arcade)].value||options[Number(x.dataset.arcade)].label||options[Number(x.dataset.arcade)])===correct)x.classList.add('correct');else if(x===b)x.classList.add('wrong')});arcadeReward(ok,correct,why)}}
 
 const wordGridDictionary=new Set(('at an as be by do go he if in is it me my no of oh on or ox so to up us we am are cat dog sun map pen bat rat hat mat man fan can pan tap top pot hot hop run fun red bed box fox jam ham yes yet ten net pet wet sit hit big pig dig win pin tin cup cut bus bug rug mug log leg hen men den one two three book look cook good food tree free play game word grid letter apple banana orange water house mouse chair table happy smile school friend family mother father brother sister green black white yellow blue pink purple brown bird fish milk bread ball car train plane boat star moon rain snow cloud flower garden river learn read write jump walk talk sing king ring wing words spell spellings smart brain board point points score'.split(/\s+/)));
+let wordGridDictionaryPromise=null;
+function loadWordGridDictionary(){
+  if(!wordGridDictionaryPromise){
+    wordGridDictionaryPromise=fetch('https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt')
+      .then(response=>{if(!response.ok)throw new Error('Dictionary download failed');return response.text()})
+      .then(text=>{text.split(/\\s+/).forEach(word=>{const w=word.trim().toLowerCase();if(/^[a-z]+$/.test(w))wordGridDictionary.add(w)});return wordGridDictionary.size})
+      .catch(error=>{wordGridDictionaryPromise=null;throw error});
+  }
+  return wordGridDictionaryPromise;
+}
+
 function wordGridStart(){
+  if(!wordGridDictionaryPromise||wordGridDictionary.size<100000){arcadeBoardHTML('LOADING WORD LIST','Loading the free English word list…','The first load may take a moment.');loadWordGridDictionary().then(count=>{wordGridStart();$('wgFeedback')&&($('wgFeedback').textContent='Dictionary loaded: '+count.toLocaleString()+' words.')}).catch(()=>{arcadeBoardHTML('WORD LIST UNAVAILABLE','Could not load the online dictionary.','Check your internet connection and start the game again.');const b=$('arcadeBoard').querySelector('.question');if(b)b.textContent='Dictionary download failed.'});return;}
   arcadeLocked=false;arcadeBoardHTML('WORD GRID BATTLE','Build words against the bot!','Choose a letter, then tap an empty square. Words form left-to-right or top-to-bottom.');
   const state={board:Array(16).fill(''),wordCells:{},turn:'you',selected:'A',scoreYou:0,scoreBot:0,level:'easy',over:false,size:4,nextWordColor:0};
   const root=$('arcadeBoard');
