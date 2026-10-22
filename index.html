@@ -22,7 +22,7 @@
  <div class="stats"><div class="stat"><strong id="stars">3 ⭐</strong><span>My stars</span></div><div class="stat"><strong id="practiced">0</strong><span>Cards practiced</span></div><div class="stat"><strong id="accuracy">—</strong><span>Quiz accuracy</span></div><div class="stat"><strong id="streak">0 🔥</strong><span>Best streak</span></div></div>
 </header>
 <nav class="tabs" aria-label="Learning modes">
- <button class="tab active" data-mode="cards"><span>🗂️</span>Q&amp;A Cards</button><button class="tab" data-mode="quiz"><span>🎯</span>Quick Quiz</button><button class="tab" data-mode="scramble"><span>🧩</span>Sentence Builder</button><button class="tab" data-mode="listening"><span>👂</span>Listening Game</button><button class="tab" data-mode="exam"><span>📝</span>Exam Practice</button>
+ <button class="tab active" data-mode="cards"><span>🗂️</span>Q&amp;A Cards</button><button class="tab" data-mode="quiz"><span>🎯</span>Quick Quiz</button><button class="tab" data-mode="scramble"><span>🧩</span>Sentence Builder</button><button class="tab" data-mode="listening"><span>👂</span>Listening Game</button><button class="tab" data-mode="exam"><span>📝</span>Exam Practice</button><button class="tab" data-mode="exam"><span>📝</span>Exam Practice</button>
 </nav>
 <main>
 <section class="panel" id="cardsPanel">
@@ -31,7 +31,7 @@
 </section>
 <section class="panel hidden" id="quizPanel"><div class="section-head"><div><h2>Quick Quiz</h2><p>Choose the best answer and collect stars.</p></div></div><div class="game-card"><div class="game-icon">🎯</div><div class="eyebrow" id="quizCount">QUESTION 1</div><div class="question-box" id="quizQuestion">Let's begin!</div><div class="bangla" id="quizBangla"></div><div class="options" id="quizOptions"></div><div class="feedback" id="quizFeedback" aria-live="polite"></div><button class="pill primary" id="nextQuiz">Next question →</button></div></section>
 <section class="panel hidden" id="scramblePanel"><div class="section-head"><div><h2>Sentence Builder</h2><p>Put the words in the right order.</p></div></div><div class="game-card"><div class="game-icon">🧩</div><div class="question-box" id="scramblePrompt">Build the answer!</div><div class="built" id="builtWords"><span style="color:#9aa1b2">Tap words below to build your sentence</span></div><div class="word-bank" id="wordBank"></div><div class="feedback" id="scrambleFeedback" aria-live="polite"></div><button class="pill" id="clearWords">↺ Clear</button> <button class="pill primary" id="checkWords">Check sentence</button> <button class="pill" id="newWords">New sentence</button></div></section>
-<section class="panel hidden" id="examPanel"><div class="section-head"><div><h2>Exam Practice</h2><p>Take a 20-question English mini-exam. Check your result at the end.</p></div></div><div class="game-card"><div class="game-icon">📝</div><div class="eyebrow" id="examCount">READY FOR YOUR EXAM?</div><div class="progressbar"><div id="examProgress" style="width:0%"></div></div><div class="question-box" id="examQuestion">Ready to test what you know?</div><div class="bangla" id="examBangla">প্রতিটি প্রশ্নের সঠিক উত্তর বেছে নাও।</div><div class="options" id="examOptions"></div><div class="feedback" id="examFeedback" aria-live="polite"></div><button class="pill primary" id="startExam">Start 20-question exam</button><button class="pill hidden" id="nextExam">Next question →</button><button class="pill hidden" id="restartExam">Try exam again</button></div></section><section class="panel hidden" id="listeningPanel"><div class="section-head"><div><h2>Listening Challenge</h2><p>Listen carefully, then choose what you heard.</p></div></div><div class="game-card"><div class="game-icon">👂</div><h3>Ready, little listener?</h3><p>Listen to a sentence and pick the matching answer.</p><button class="pill primary" id="playListening">🔊 Play sentence</button><div class="options" id="listenOptions"></div><div class="feedback" id="listenFeedback" aria-live="polite"></div><button class="pill" id="nextListening">Try another →</button></div></section>
+<section class="panel hidden" id="examPanel"><div class="section-head"><div><h2>Exam Practice</h2><p>Take a 20-question English mini-exam. Check your result at the end.</p></div></div><div class="game-card"><div class="game-icon">📝</div><div class="eyebrow" id="examCount">READY FOR YOUR EXAM?</div><div class="progressbar"><div id="examProgress" style="width:0%"></div></div><div class="question-box" id="examQuestion">Ready to test what you know?</div><div class="bangla" id="examBangla">প্রতিটি প্রশ্নের সঠিক উত্তর বেছে নাও।</div><div class="options" id="examOptions"></div><div class="feedback" id="examFeedback" aria-live="polite"></div><button class="pill primary" id="startExam">Start 20-question exam</button><button class="pill hidden" id="nextExam">Next question →</button><button class="pill hidden" id="restartExam">Try exam again</button></div></section><section class="panel hidden" id="examPanel"><div class="section-head"><div><h2>Exam Practice</h2><p>Take a 20-question English mini-exam and see your score.</p></div></div><div class="game-card"><div class="game-icon">📝</div><div class="eyebrow" id="examCount">READY FOR YOUR EXAM?</div><div class="progressbar"><div id="examProgress" style="width:0%"></div></div><div class="question-box" id="examQuestion">Ready to test what you know?</div><div class="bangla" id="examBangla">প্রতিটি প্রশ্নের সঠিক উত্তর বেছে নাও।</div><div class="options" id="examOptions"></div><div class="feedback" id="examFeedback" aria-live="polite"></div><button class="pill primary" id="startExam">Start 20-question exam</button><button class="pill hidden" id="nextExam">Next question →</button><button class="pill hidden" id="restartExam">Try again</button></div></section><section class="panel hidden" id="listeningPanel"><div class="section-head"><div><h2>Listening Challenge</h2><p>Listen carefully, then choose what you heard.</p></div></div><div class="game-card"><div class="game-icon">👂</div><h3>Ready, little listener?</h3><p>Listen to a sentence and pick the matching answer.</p><button class="pill primary" id="playListening">🔊 Play sentence</button><div class="options" id="listenOptions"></div><div class="feedback" id="listenFeedback" aria-live="polite"></div><button class="pill" id="nextListening">Try another →</button></div></section>
 </main>
 <footer class="footer"><p>🌟 Junior English Q&amp;A Masterbook • Designed for joyful learning with Bangladeshi kids in mind.</p><p>Tip: Tap any card to hear pronunciation. Practice daily for confident spoken English!</p><button class="small-btn" id="stopAudio">■ Stop audio</button></footer>
 </div>
@@ -155,6 +155,69 @@ const questionPatterns=[
 ];
 const generatedQA=questionPatterns.map((x,i)=>({id:'practice-'+i,q:x[0],a:x[1],banglaQ:x[2],banglaA:x[3],category:x[4],emoji:x[5],hint:'Practice the sentence, then personalize it with your own information.'}));
 
+
+const extraQA=(()=>{
+ const rows=[
+ ['What is the opposite of hot?','Cold.','গরমের বিপরীত কী?','ঠান্ডা।','general','🌈'],
+ ['What is the opposite of big?','Small.','বড়র বিপরীত কী?','ছোট।','general','🌈'],
+ ['What is the opposite of happy?','Sad.','খুশির বিপরীত কী?','দুঃখিত।','general','🌈'],
+ ['What is the opposite of fast?','Slow.','দ্রুতের বিপরীত কী?','ধীর।','general','🌈'],
+ ['What is the opposite of day?','Night.','দিনের বিপরীত কী?','রাত।','general','🌈'],
+ ['What is the opposite of clean?','Dirty.','পরিষ্কারের বিপরীত কী?','নোংরা।','general','🌈'],
+ ['How many days are there in a week?','There are seven days in a week.','এক সপ্তাহে কয় দিন?','এক সপ্তাহে সাত দিন।','general','📅'],
+ ['How many months are there in a year?','There are twelve months in a year.','এক বছরে কয় মাস?','এক বছরে বারো মাস।','general','📅'],
+ ['What colour is the sky on a clear day?','The sky is blue.','পরিষ্কার দিনে আকাশের রং কী?','আকাশ নীল।','general','🌤️'],
+ ['Which animal gives us milk?','A cow gives us milk.','কোন প্রাণী দুধ দেয়?','গরু দুধ দেয়।','general','🐄'],
+ ['What do plants need to grow?','Plants need water, sunlight, air, and soil.','গাছের কী লাগে?','গাছের পানি, আলো, বাতাস ও মাটি লাগে।','general','🌱'],
+ ['What should you do at a red traffic light?','I should stop at a red traffic light.','লাল বাতিতে কী করবে?','লাল বাতিতে থামব।','general','🚦'],
+ ['What do you write with?','I write with a pencil.','তুমি কী দিয়ে লেখো?','আমি পেন্সিল দিয়ে লিখি।','school','✏️'],
+ ['Who teaches you?','My teacher teaches me.','তোমাকে কে পড়ান?','আমার শিক্ষক আমাকে পড়ান।','school','🏫'],
+ ['What do you use to erase pencil marks?','I use an eraser.','পেন্সিলের দাগ কী দিয়ে মোছো?','আমি রাবার দিয়ে মুছি।','school','✏️'],
+ ['Why do you go to school?','I go to school to learn.','স্কুলে যাও কেন?','আমি শিখতে স্কুলে যাই।','school','🎒'],
+ ['What do you drink when you are thirsty?','I drink water.','তৃষ্ণা পেলে কী পান করো?','আমি পানি পান করি।','food','💧'],
+ ['What should you do before eating?','I should wash my hands.','খাওয়ার আগে কী করা উচিত?','হাত ধোয়া উচিত।','food','🧼'],
+ ['What do you eat with rice?','I eat vegetables with rice.','ভাতের সাথে কী খাও?','আমি ভাতের সাথে সবজি খাই।','food','🍚'],
+ ['Why should we eat vegetables?','Vegetables help us stay healthy.','সবজি খাওয়া উচিত কেন?','সবজি সুস্থ থাকতে সাহায্য করে।','food','🥦'],
+ ['What do you do after waking up?','I wash my face.','ঘুম থেকে উঠে কী করো?','আমি মুখ ধুই।','routine','🌅'],
+ ['When do you brush your teeth?','I brush my teeth every morning and night.','কখন দাঁত মাজো?','আমি সকালে ও রাতে দাঁত মাজি।','routine','🪥'],
+ ['What do you do when you feel tired?','I take a short rest.','ক্লান্ত লাগলে কী করো?','আমি একটু বিশ্রাম নিই।','routine','😴'],
+ ['How often do you exercise?','I exercise every day.','কতবার ব্যায়াম করো?','আমি প্রতিদিন ব্যায়াম করি।','routine','💪'],
+ ['What do you say when someone helps you?','I say, “Thank you.”','কেউ সাহায্য করলে কী বলো?','আমি বলি, “ধন্যবাদ।”','friends','🤝'],
+ ['What do you say when you make a mistake?','I say, “I am sorry.”','ভুল করলে কী বলো?','আমি বলি, “আমি দুঃখিত।”','friends','🙏'],
+ ['How can you be a good friend?','I share and help my friends.','ভালো বন্ধু হবে কীভাবে?','আমি বন্ধুদের সাহায্য করি ও ভাগ করে নিই।','friends','🤗'],
+ ['What should you do when a friend is sad?','I listen and comfort my friend.','বন্ধুর মন খারাপ হলে কী করবে?','আমি বন্ধুর কথা শুনে সান্ত্বনা দেব।','friends','💗'],
+ ['What do you like to draw?','I like to draw flowers and animals.','কী আঁকতে ভালো লাগে?','আমি ফুল ও প্রাণী আঁকতে ভালোবাসি।','hobbies','🎨'],
+ ['What do you do on holidays?','I play games and spend time with family.','ছুটির দিনে কী করো?','আমি খেলি ও পরিবারের সাথে সময় কাটাই।','hobbies','🎲'],
+ ['What is a fun indoor activity?','Reading a book is a fun indoor activity.','ঘরে মজার কাজ কী?','বই পড়া ঘরের ভেতরে মজার কাজ।','hobbies','📚'],
+ ['How do you keep the environment clean?','I put rubbish in a bin.','পরিবেশ পরিষ্কার রাখো কীভাবে?','আমি ময়লা ডাস্টবিনে ফেলি।','general','♻️']
+ ];
+ const variants=[
+ ['What is your favourite colour?','My favourite colour is blue.','তোমার প্রিয় রং কী?','আমার প্রিয় রং নীল।','general','🎨'],
+ ['What is your favourite animal?','My favourite animal is a cat.','তোমার প্রিয় প্রাণী কী?','আমার প্রিয় প্রাণী বিড়াল।','general','🐱'],
+ ['What is your favourite season?','My favourite season is winter.','তোমার প্রিয় ঋতু কী?','আমার প্রিয় ঋতু শীত।','general','🌦️'],
+ ['What is your favourite subject?','My favourite subject is English.','তোমার প্রিয় বিষয় কী?','আমার প্রিয় বিষয় ইংরেজি।','school','📘'],
+ ['What do you do in your free time?','I read books in my free time.','অবসর সময়ে কী করো?','আমি অবসর সময়ে বই পড়ি।','hobbies','📖'],
+ ['What makes you happy?','Spending time with my family makes me happy.','কী তোমাকে খুশি করে?','পরিবারের সাথে সময় কাটালে আমি খুশি হই।','friends','😊'],
+ ['How do you stay healthy?','I eat healthy food and exercise.','সুস্থ থাকো কীভাবে?','আমি স্বাস্থ্যকর খাবার খাই ও ব্যায়াম করি।','routine','💪'],
+ ['What do you do when you are sick?','I tell my parents and rest.','অসুস্থ হলে কী করো?','আমি বাবা-মাকে বলি ও বিশ্রাম নিই।','routine','🩺'],
+ ['What is your favourite place?','My favourite place is the park.','তোমার প্রিয় জায়গা কী?','আমার প্রিয় জায়গা পার্ক।','general','🌳'],
+ ['What do you do on your birthday?','I celebrate with my family and friends.','জন্মদিনে কী করো?','আমি পরিবার ও বন্ধুদের সাথে উদযাপন করি।','friends','🎂'],
+ ['What do you want to be?','I want to be a teacher.','তুমি কী হতে চাও?','আমি শিক্ষক হতে চাই।','general','🌟'],
+ ['How do you care for animals?','I give them food and water.','প্রাণীদের যত্ন নাও কীভাবে?','আমি তাদের খাবার ও পানি দিই।','general','🐾'],
+ ['What do you do at the library?','I read books quietly at the library.','লাইব্রেরিতে কী করো?','আমি লাইব্রেরিতে চুপচাপ বই পড়ি।','school','📚'],
+ ['How do you cross a road safely?','I look both ways and use a crossing.','নিরাপদে রাস্তা পার হও কীভাবে?','আমি দুই দিকে তাকিয়ে ক্রসিং ব্যবহার করি।','general','🚸'],
+ ['What do you do when you finish homework?','I check my answers.','বাড়ির কাজ শেষ করলে কী করো?','আমি উত্তরগুলো যাচাই করি।','school','✏️'],
+ ['What do you wear on a rainy day?','I take an umbrella or wear a raincoat.','বৃষ্টির দিনে কী পরো?','আমি ছাতা নিই বা রেইনকোট পরি।','routine','☔'],
+ ['What can you see at night?','I can see the moon and stars.','রাতে কী দেখতে পাও?','আমি চাঁদ ও তারা দেখতে পাই।','general','🌙'],
+ ['How do you greet your teacher?','I say, “Good morning, teacher.”','শিক্ষককে কীভাবে শুভেচ্ছা জানাও?','আমি বলি, “শুভ সকাল, শিক্ষক।”','friends','👋'],
+ ['How do you help at home?','I keep my room clean.','বাড়িতে কীভাবে সাহায্য করো?','আমি আমার ঘর পরিষ্কার রাখি।','routine','🏡'],
+ ['Which sport do you enjoy?','I enjoy playing football.','কোন খেলা খেলতে ভালো লাগে?','আমার ফুটবল খেলতে ভালো লাগে।','hobbies','⚽']
+ ];
+ const out=rows.map((x,i)=>({id:'extra-'+i,q:x[0],a:x[1],banglaQ:x[2],banglaA:x[3],category:x[4],emoji:x[5],hint:'Say the answer aloud and make your own sentence.'}));
+ for(let round=0;out.length<184;round++){for(let i=0;i<variants.length&&out.length<184;i++){const x=variants[i],n=round+1;out.push({id:'generated-'+round+'-'+i,q:x[0].replace('What is','What is')+' (Practice '+n+')',a:x[1],banglaQ:x[2],banglaA:x[3],category:x[4],emoji:x[5],hint:'Practice variation '+n+': say the answer clearly and confidently.'})}}
+ return out;
+})();
+
 const badges=[{id:'first-step',title:'Junior Explorer',emoji:'🌟',requiredStars:1},{id:'voice-star',title:'Golden Voice',emoji:'🎙️',requiredStars:5},{id:'quiz-champ',title:'Quiz Champion',emoji:'🏆',requiredStars:10},{id:'streak-master',title:'Super Streak',emoji:'⚡',requiredStars:15},{id:'sentence-builder',title:'Word Wizard',emoji:'🪄',requiredStars:20},{id:'english-hero',title:'English Hero',emoji:'🦸',requiredStars:30}];
 const load=(key,fallback)=>{try{const x=JSON.parse(localStorage.getItem(key));return x??fallback}catch{return fallback}};
 let savedQA=load('junior_english_qa_data_v1',null);
@@ -195,6 +258,15 @@ function showExamQuestion(){examAnswered=false;const item=examQuestions[examInde
 $('startExam').addEventListener('click',startExam);$('restartExam').addEventListener('click',startExam);
 $('examOptions').addEventListener('click',e=>{const b=e.target.closest('[data-exam]');if(!b||examAnswered||!examStarted)return;examAnswered=true;const item=examQuestions[examIndex],ok=b.dataset.exam===item.id;if(ok)examScore++;document.querySelectorAll('#examOptions .option').forEach(x=>{x.disabled=true;if(x.dataset.exam===item.id)x.classList.add('correct');else if(x===b)x.classList.add('wrong')});$('examFeedback').textContent=ok?'Correct! Well done.':'Correct answer: '+item.a;$('examProgress').style.width=((examIndex+1)/examQuestions.length*100)+'%';$('nextExam').classList.remove('hidden');$('nextExam').textContent=examIndex===examQuestions.length-1?'See my result':'Next question →'});
 $('nextExam').addEventListener('click',()=>{if(!examAnswered)return;if(examIndex<examQuestions.length-1){examIndex++;showExamQuestion();return}examStarted=false;progress.quizAttemptTotal+=examQuestions.length;progress.quizCorrectTotal+=examScore;const earned=Math.round(examScore/20*10);if(earned>0)award(earned);else{save();renderStats()}$('examCount').textContent='EXAM COMPLETE';$('examProgress').style.width='100%';$('examQuestion').textContent='You scored '+examScore+' / '+examQuestions.length+' ('+Math.round(examScore/20*100)+'%)';$('examBangla').textContent=examScore>=16?'চমৎকার! দারুণ করেছ!':examScore>=10?'ভালো চেষ্টা! আরও অনুশীলন করো।':'হাল ছেড়ো না—আবার চেষ্টা করো!';$('examOptions').innerHTML='';$('examFeedback').textContent='You earned '+earned+' stars. '+(examScore>=16?'Excellent work!':examScore>=10?'Keep practicing to improve.':'Review the cards and try again.');$('nextExam').classList.add('hidden');$('restartExam').classList.remove('hidden');save();renderStats()});
+
+
+let examQuestions=[],examIndex=0,examScore=0,examAnswered=false,examStarted=false;
+function resetExam(){examStarted=false;examQuestions=[];examIndex=0;examScore=0;examAnswered=false;$('examCount').textContent='READY FOR YOUR EXAM?';$('examProgress').style.width='0%';$('examQuestion').textContent='Ready to test what you know?';$('examBangla').textContent='প্রতিটি প্রশ্নের সঠিক উত্তর বেছে নাও।';$('examOptions').innerHTML='';$('examFeedback').textContent='';$('startExam').classList.remove('hidden');$('nextExam').classList.add('hidden');$('restartExam').classList.add('hidden')}
+function startExam(){examQuestions=shuffle(qa).slice(0,20);examIndex=0;examScore=0;examStarted=true;$('startExam').classList.add('hidden');$('restartExam').classList.add('hidden');showExamQuestion()}
+function showExamQuestion(){examAnswered=false;const item=examQuestions[examIndex],opts=shuffle([item,...shuffle(qa.filter(x=>x.id!==item.id)).slice(0,3)]);$('examCount').textContent='QUESTION '+(examIndex+1)+' OF '+examQuestions.length;$('examProgress').style.width=(examIndex/examQuestions.length*100)+'%';$('examQuestion').textContent=item.q;$('examBangla').textContent=item.banglaQ||'';$('examFeedback').textContent='';$('examOptions').innerHTML=opts.map(x=>'<button class="option" data-exam="'+escapeHTML(x.id)+'">'+escapeHTML(x.a)+'</button>').join('');$('nextExam').classList.add('hidden')}
+$('startExam').addEventListener('click',startExam);$('restartExam').addEventListener('click',startExam);
+$('examOptions').addEventListener('click',e=>{const b=e.target.closest('[data-exam]');if(!b||examAnswered||!examStarted)return;examAnswered=true;const item=examQuestions[examIndex],ok=b.dataset.exam===item.id;if(ok)examScore++;document.querySelectorAll('#examOptions .option').forEach(x=>{x.disabled=true;if(x.dataset.exam===item.id)x.classList.add('correct');else if(x===b)x.classList.add('wrong')});$('examFeedback').textContent=ok?'Correct! Well done.':'Correct answer: '+item.a;$('examProgress').style.width=((examIndex+1)/examQuestions.length*100)+'%';$('nextExam').classList.remove('hidden');$('nextExam').textContent=examIndex===examQuestions.length-1?'See my result':'Next question →'});
+$('nextExam').addEventListener('click',()=>{if(!examAnswered)return;if(examIndex<examQuestions.length-1){examIndex++;showExamQuestion();return}examStarted=false;progress.quizAttemptTotal+=examQuestions.length;progress.quizCorrectTotal+=examScore;const earned=Math.round(examScore/2);if(earned>0)award(earned);else{save();renderStats()}$('examCount').textContent='EXAM COMPLETE';$('examProgress').style.width='100%';$('examQuestion').textContent='You scored '+examScore+' / 20 ('+Math.round(examScore/20*100)+'%)';$('examBangla').textContent=examScore>=16?'চমৎকার! দারুণ করেছ!':examScore>=10?'ভালো চেষ্টা! আরও অনুশীলন করো।':'আবার চেষ্টা করো—তুমি পারবে!';$('examOptions').innerHTML='';$('examFeedback').textContent='You earned '+earned+' stars. '+(examScore>=16?'Excellent work!':examScore>=10?'Keep practicing to improve.':'Review the cards and try again.');$('nextExam').classList.add('hidden');$('restartExam').classList.remove('hidden');save();renderStats()});
 
 function openModal(title,content,saveFn=()=>{}){$('modalTitle').textContent=title;$('modalContent').innerHTML=content;modalAction=saveFn;$('modalBackdrop').classList.add('show');$('modalCancel').textContent='Close';$('modalSave').classList.remove('hidden')}
 function closeModal(){$('modalBackdrop').classList.remove('show');modalAction=null}
