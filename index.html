@@ -216,17 +216,16 @@ function wordGridStart(){
       const colorId=state.nextWordColor++ % 8;
       // Color every cell in each completed horizontal/vertical word.
       const row=Math.floor(idx/state.size),col=idx%state.size;
-      const markRun=(indices,word)=>{
-        if(word.length<2)return;
+      const markRun=(indices)=>{
         const text=indices.map(i=>state.board[i]).join('').toLowerCase();
-        if(wordGridDictionary.has(text))indices.forEach(i=>state.wordCells[i]=colorId);
+        if(text.length>=2&&wordGridDictionary.has(text))indices.forEach(i=>state.wordCells[i]=colorId);
       };
       let left=col;while(left>0&&state.board[row*state.size+left-1])left--;
       let right=col;while(right<state.size-1&&state.board[row*state.size+right+1])right++;
-      markRun(Array.from({length:right-left+1},(_,n)=>row*state.size+left+n),state.board.slice(row*state.size+left,row*state.size+right+1).join('').toLowerCase());
+      markRun(Array.from({length:right-left+1},(_,n)=>row*state.size+left+n));
       let top=row;while(top>0&&state.board[(top-1)*state.size+col])top--;
       let bottom=row;while(bottom<state.size-1&&state.board[(bottom+1)*state.size+col])bottom++;
-      markRun(Array.from({length:bottom-top+1},(_,n)=>(top+n)*state.size+col),state.board.slice(top*state.size+col,bottom*state.size+col+1).filter((_,i)=>i>=0).join('').toLowerCase());
+      markRun(Array.from({length:bottom-top+1},(_,n)=>(top+n)*state.size+col));
       if(player==='you')state.scoreYou+=points;else state.scoreBot+=points;
     }
     $('wgFeedback').textContent=formed.length?(player==='you'?'You made: ':'Bot made: ')+formed.join(', ')+' (+'+points+' point'+(points===1?'':'s')+')':(player==='you'?'No word formed: 0 points. Try to complete a word.':'Bot placed '+letter+'.');
