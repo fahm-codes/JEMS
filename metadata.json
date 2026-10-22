@@ -1,0 +1,6 @@
+{
+  "name": "Junior English Q&A Masterbook",
+  "description": "Fun English Q&A practice for young learners with kid-friendly voices, interactive quizzes, speech practice, bilingual hints, and reward stickers.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
