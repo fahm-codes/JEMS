@@ -1,0 +1,24 @@
+{
+  "name": "JEMS — Junior English Masterbook",
+  "short_name": "JEMS",
+  "description": "English learning games, vocabulary and progress tracking with Bangla support.",
+  "lang": "en",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fff8e8",
+  "theme_color": "#6d55d9",
+  "categories": [
+    "education",
+    "games"
+  ],
+  "icons": [
+    {
+      "src": "./assets/jems-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
